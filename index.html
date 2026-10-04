@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>IMES — Building the Future Through Innovation and Enterprise Excellence</title>
+<meta name="description" content="IMES is a multinational parent company creating value through technology, business innovation, creative services, and strategic growth across diverse industries." />
+<meta name="theme-color" content="#0B1220" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --ink:#0B1220;
+    --text:#111827;
+    --muted:#64748B;
+    --accent:#2563EB;
+    --accent-deep:#1D4ED8;
+    --indigo:#4F46E5;
+    --bg:#FFFFFF;
+    --surface:#F8FAFC;
+    --line:#E8EDF3;
+    --line-strong:#D9E1EC;
+    --r:18px;
+    --sh-sm:0 1px 2px rgba(11,18,32,.05), 0 1px 3px rgba(11,18,32,.04);
+    --sh-md:0 6px 18px -6px rgba(11,18,32,.10), 0 2px 6px rgba(11,18,32,.04);
+    --sh-lg:0 26px 50px -20px rgba(11,18,32,.22), 0 8px 20px -12px rgba(11,18,32,.10);
+    --sh-accent:0 18px 40px -14px rgba(37,99,235,.45);
+    --max:1180px;
+    --ease:cubic-bezier(.22,.61,.36,1);
+  }
+  *,*::before,*::after{box-sizing:border-box;}
+  html{scroll-behavior:smooth;scroll-padding-top:84px;-webkit-text-size-adjust:100%;}
+  body{
+    margin:0;background:var(--bg);color:var(--text);
+    font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+    font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
+    overflow-x:hidden;
+  }
+  h1,h2,h3,h4{margin:0;font-weight:700;line-height:1.16;letter-spacing:-0.028em;}
+  p{margin:0;}
+  a{color:inherit;text-decoration:none;}
+  button{font-family:inherit;}
+  svg{display:block;}
+  .wrap{width:100%;max-width:var(--max);margin:0 auto;padding:0 28px;}
+  .sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);}
+
+  /* ---------- Buttons ---------- */
+  .btn{
+    display:inline-flex;align-items:center;justify-content:center;gap:9px;
+    padding:14px 26px;border-radius:12px;font-size:15px;font-weight:600;border:1px solid transparent;
+    cursor:pointer;white-space:nowrap;
+    transition:transform .28s var(--ease),box-shadow .28s var(--ease),background .25s var(--ease),border-color .25s var(--ease),color .25s var(--ease);
+  }
+  .btn svg{width:16px;height:16px;transition:transform .28s var(--ease);}
+  .btn:hover svg{transform:translateX(3px);}
+  .btn-primary{
+    background:linear-gradient(135deg,var(--accent) 0%,var(--indigo) 100%);color:#fff;
+    box-shadow:var(--sh-accent);
+  }
+  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 24px 48px -16px rgba(37,99,235,.55);}
+  .btn-ghost{background:#fff;color:var(--ink);border-color:var(--line-strong);box-shadow:var(--sh-sm);}
+  .btn-ghost:hover{transform:translateY(-2px);border-color:#C3CEDD;box-shadow:var(--sh-md);}
+  .btn-sm{padding:11px 20px;font-size:14px;border-radius:10px;}
+  a:focus-visible,.btn:focus-visible,input:focus-visible,textarea:focus-visible{outline:2px solid var(--accent);outline-offset:2px;}
+
+  /* ---------- Header ---------- */
+  .header{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.78);backdrop-filter:saturate(180%) blur(16px);-webkit-backdrop-filter:saturate(180%) blur(16px);border-bottom:1px solid transparent;transition:border-color .3s var(--ease),box-shadow .3s var(--ease);}
+  .header.scrolled{border-bottom-color:var(--line);box-shadow:0 4px 24px -12px rgba(11,18,32,.12);}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:74px;}
+  .logo{display:flex;align-items:center;gap:11px;font-weight:800;font-size:19px;letter-spacing:-0.02em;}
+  .logo .mark{
+    width:34px;height:34px;border-radius:10px;position:relative;overflow:hidden;flex:none;
+    background:linear-gradient(135deg,var(--ink) 0%,#1E293B 100%);
+    display:grid;place-items:center;color:#fff;font-size:14px;font-weight:800;box-shadow:var(--sh-sm);
+  }
+  .logo .mark::after{content:"";position:absolute;width:22px;height:22px;border-radius:50%;right:-8px;bottom:-9px;background:linear-gradient(135deg,var(--accent),var(--indigo));}
+  .logo .mark span{position:relative;z-index:1;}
+  .menu{display:flex;align-items:center;gap:6px;list-style:none;margin:0;padding:0;}
+  .menu a{display:block;padding:9px 15px;border-radius:10px;font-size:14.5px;font-weight:500;color:#334155;transition:color .2s var(--ease),background .2s var(--ease);}
+  .menu a:hover{color:var(--ink);background:var(--surface);}
+  .burger{display:none;width:44px;height:44px;border:1px solid var(--line-strong);border-radius:11px;background:#fff;cursor:pointer;padding:0;place-items:center;}
+  .burger i{display:block;width:18px;height:2px;border-radius:2px;background:var(--ink);transition:transform .3s var(--ease),opacity .2s var(--ease);}
+  .burger i+i{margin-top:4px;}
+  .burger.on i:nth-child(1){transform:translateY(6px) rotate(45deg);}
+  .burger.on i:nth-child(2){opacity:0;}
+  .burger.on i:nth-child(3){transform:translateY(-6px) rotate(-45deg);}
+  .drawer{display:none;position:fixed;top:74px;left:0;right:0;z-index:99;background:rgba(255,255,255,.97);backdrop-filter:blur(16px);border-bottom:1px solid var(--line);padding:12px 28px 24px;box-shadow:var(--sh-md);opacity:0;transform:translateY(-10px);transition:opacity .28s var(--ease),transform .28s var(--ease);}
+  .drawer.open{display:block;opacity:1;transform:none;}
+  .drawer a{display:block;padding:14px 4px;border-bottom:1px solid var(--line);font-weight:500;color:#334155;}
+  .drawer a:last-of-type{border-bottom:0;}
+  .drawer .btn{width:100%;margin-top:14px;}
+
+  /* ---------- Section scaffolding ---------- */
+  section{position:relative;}
+  .sec{padding:104px 0;}
+  .tint{background:linear-gradient(180deg,var(--surface) 0%,#FBFDFF 100%);border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
+  .head{max-width:700px;margin-bottom:56px;}
+  .head.center{margin-left:auto;margin-right:auto;text-align:center;}
+  .kicker{display:inline-flex;align-items:center;gap:9px;font-size:12.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:18px;}
+  .kicker::before{content:"";width:22px;height:2px;border-radius:2px;background:linear-gradient(90deg,var(--accent),var(--indigo));}
+  .head.center .kicker::after{content:"";width:22px;height:2px;border-radius:2px;background:linear-gradient(90deg,var(--indigo),var(--accent));}
+  .head h2{font-size:clamp(1.75rem,3.4vw,2.55rem);font-weight:800;letter-spacing:-0.032em;margin-bottom:18px;}
+  .head p{font-size:1.06rem;color:var(--muted);}
+  .grad{background:linear-gradient(120deg,var(--accent) 0%,var(--indigo) 100%);-webkit-background-clip:text;background-clip:text;color:transparent;}
+
+  /* ---------- Hero ---------- */
+  .hero{position:relative;overflow:hidden;padding:100px 0 96px;background:radial-gradient(120% 90% at 78% -10%,rgba(37,99,235,.12) 0%,rgba(79,70,229,.05) 34%,rgba(255,255,255,0) 62%),linear-gradient(180deg,#FFFFFF 0%,#FBFDFF 100%);}
+  .hero::after{content:"";position:absolute;left:-160px;bottom:-200px;width:520px;height:520px;border-radius:50%;background:radial-gradient(circle,rgba(79,70,229,.10),transparent 66%);pointer-events:none;}
+  .hero-grid{position:relative;z-index:1;display:grid;grid-template-columns:1.06fr .94fr;gap:60px;align-items:center;}
+  .pill{display:inline-flex;align-items:center;gap:9px;padding:8px 16px;border-radius:999px;background:#fff;border:1px solid var(--line-strong);font-size:13px;font-weight:600;color:#334155;box-shadow:var(--sh-sm);}
+  .pill .dot{width:7px;height:7px;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--indigo));box-shadow:0 0 0 4px rgba(37,99,235,.14);}
+  .hero h1{font-size:clamp(2.15rem,4.7vw,3.55rem);font-weight:800;letter-spacing:-0.038em;margin:24px 0 22px;}
+  .hero .sub{font-size:1.09rem;color:var(--muted);max-width:540px;margin-bottom:36px;}
+  .hero-cta{display:flex;flex-wrap:wrap;gap:14px;}
+  .hero-strip{display:grid;grid-template-columns:repeat(3,1fr);margin-top:52px;padding-top:32px;border-top:1px solid var(--line);}
+  .hero-strip div{padding-right:24px;border-right:1px solid var(--line);}
+  .hero-strip div:last-child{border-right:0;}
+  .hero-strip strong{display:block;font-size:1.75rem;font-weight:800;letter-spacing:-0.03em;}
+  .hero-strip span{font-size:13.5px;color:var(--muted);}
+
+  /* Hero visual */
+  .viz{position:relative;}
+  .viz-card{background:rgba(255,255,255,.86);backdrop-filter:blur(8px);border:1px solid var(--line);border-radius:22px;box-shadow:var(--sh-lg);padding:22px;}
+  .viz-bar{display:flex;align-items:center;gap:8px;margin-bottom:18px;}
+  .viz-bar i{width:10px;height:10px;border-radius:50%;background:var(--line-strong);}
+  .viz-bar i.b{background:linear-gradient(135deg,var(--accent),var(--indigo));}
+  .viz-bar .t{margin-left:auto;font-size:12px;font-weight:600;color:var(--muted);}
+  .viz-tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;}
+  .viz-tile{background:linear-gradient(180deg,#fff,#F8FAFC);border:1px solid var(--line);border-radius:14px;padding:16px 14px;}
+  .viz-tile .ic{width:34px;height:34px;border-radius:10px;background:linear-gradient(135deg,rgba(37,99,235,.14),rgba(79,70,229,.14));color:var(--accent);display:grid;place-items:center;margin-bottom:14px;}
+  .viz-tile .ic svg{width:18px;height:18px;}
+  .viz-tile .ln{height:7px;border-radius:4px;background:#EAEFF5;}
+  .viz-tile .ln+.ln{margin-top:8px;}
+  .viz-tile .ln.a{width:82%;background:linear-gradient(90deg,rgba(37,99,235,.5),rgba(79,70,229,.5));}
+  .viz-tile .ln.b{width:56%;}
+  .viz-chart{margin-top:14px;background:linear-gradient(180deg,#fff,#F8FAFC);border:1px solid var(--line);border-radius:14px;padding:18px 16px 14px;}
+  .viz-row{display:flex;align-items:center;gap:12px;margin-bottom:12px;}
+  .viz-row:last-child{margin-bottom:0;}
+  .viz-row .k{width:56px;flex:none;font-size:12px;font-weight:600;color:#475569;}
+  .viz-track{flex:1;height:9px;border-radius:6px;background:#EEF2F7;overflow:hidden;}
+  .viz-fill{height:100%;width:0;border-radius:6px;background:linear-gradient(90deg,var(--accent),var(--indigo));transition:width 1.5s var(--ease);}
+  .viz-badge{position:absolute;left:-20px;bottom:-20px;background:#fff;border:1px solid var(--line);border-radius:16px;box-shadow:var(--sh-lg);padding:14px 18px;display:flex;align-items:center;gap:12px;}
+  .viz-badge .ic{width:40px;height:40px;border-radius:11px;background:linear-gradient(135deg,var(--ink),#1E293B);color:#fff;display:grid;place-items:center;flex:none;}
+  .viz-badge .ic svg{width:20px;height:20px;}
+  .viz-badge strong{display:block;font-size:14px;}
+  .viz-badge span{font-size:12px;color:var(--muted);}
+  .float{position:absolute;top:-18px;right:-14px;background:#fff;border:1px solid var(--line);border-radius:14px;box-shadow:var(--sh-lg);padding:11px 15px;display:flex;align-items:center;gap:9px;font-size:13px;font-weight:600;}
+  .float .up{color:#059669;display:grid;place-items:center;}
+  .float .up svg{width:15px;height:15px;}
+
+  /* ---------- Feature cards ---------- */
+  .grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;}
+  .card{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:30px 26px;position:relative;overflow:hidden;transition:transform .32s var(--ease),box-shadow .32s var(--ease),border-color .32s var(--ease);}
+  .card::before{content:"";position:absolute;inset:0;border-radius:var(--r);padding:1px;background:linear-gradient(135deg,rgba(37,99,235,.5),rgba(79,70,229,.5));-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;opacity:0;transition:opacity .32s var(--ease);pointer-events:none;}
+  .card:hover{transform:translateY(-6px);box-shadow:var(--sh-lg);}
+  .card:hover::before{opacity:1;}
+  .card .ic{width:50px;height:50px;border-radius:14px;background:linear-gradient(135deg,rgba(37,99,235,.12),rgba(79,70,229,.12));color:var(--accent);display:grid;place-items:center;margin-bottom:22px;}
+  .card .ic svg{width:23px;height:23px;}
+  .card h3{font-size:1.1rem;font-weight:700;margin-bottom:10px;}
+  .card p{font-size:.94rem;color:var(--muted);}
+
+  /* ---------- Stats ---------- */
+  .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;margin-top:56px;}
+  .stat{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:32px 22px;text-align:center;box-shadow:var(--sh-sm);transition:transform .3s var(--ease),box-shadow .3s var(--ease);}
+  .stat:hover{transform:translateY(-4px);box-shadow:var(--sh-md);}
+  .stat .num{font-size:clamp(2rem,3.6vw,2.7rem);font-weight:800;letter-spacing:-0.035em;}
+  .stat .lbl{margin-top:8px;font-size:.92rem;color:var(--muted);font-weight:500;}
+
+  /* ---------- Subsidiary cards ---------- */
+  .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+  .sub{display:flex;flex-direction:column;background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:30px;position:relative;overflow:hidden;transition:transform .32s var(--ease),box-shadow .32s var(--ease),border-color .32s var(--ease);}
+  .sub::after{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--accent),var(--indigo));transform:scaleX(0);transform-origin:left;transition:transform .4s var(--ease);}
+  .sub:hover{transform:translateY(-6px);box-shadow:var(--sh-lg);border-color:var(--line-strong);}
+  .sub:hover::after{transform:scaleX(1);}
+  .sub .logo{width:54px;height:54px;border-radius:15px;display:grid;place-items:center;font-weight:800;font-size:19px;color:#fff;margin-bottom:22px;box-shadow:var(--sh-md);background:linear-gradient(135deg,var(--ink),#1E293B);}
+  .sub .logo.g{background:linear-gradient(135deg,var(--accent),var(--indigo));}
+  .sub .flag{position:absolute;top:22px;right:22px;font-size:10.5px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--accent);background:rgba(37,99,235,.09);padding:5px 11px;border-radius:999px;}
+  .sub h3{font-size:1.18rem;font-weight:700;margin-bottom:7px;}
+  .sub .cat{font-size:11.5px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--accent);margin-bottom:14px;}
+  .sub p{font-size:.94rem;color:var(--muted);flex:1;margin-bottom:24px;}
+  .sub .more{display:inline-flex;align-items:center;gap:7px;font-size:14px;font-weight:600;color:var(--ink);transition:color .2s var(--ease);}
+  .sub .more svg{width:15px;height:15px;transition:transform .28s var(--ease);}
+  .sub:hover .more{color:var(--accent);}
+  .sub:hover .more svg{transform:translateX(4px);}
+
+  /* ---------- Project cards ---------- */
+  .proj{display:flex;flex-direction:column;background:#fff;border:1px solid var(--line);border-radius:var(--r);overflow:hidden;transition:transform .32s var(--ease),box-shadow .32s var(--ease),border-color .32s var(--ease);}
+  .proj:hover{transform:translateY(-6px);box-shadow:var(--sh-lg);border-color:var(--line-strong);}
+  .proj .thumb{height:180px;position:relative;overflow:hidden;display:grid;place-items:center;background:linear-gradient(135deg,#EEF3FB 0%,#E7ECFA 55%,#EDE9FE 100%);}
+  .proj .thumb::before{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(148,163,184,.16) 1px,transparent 1px),linear-gradient(90deg,rgba(148,163,184,.16) 1px,transparent 1px);background-size:28px 28px;}
+  .proj .thumb::after{content:"";position:absolute;width:180px;height:180px;border-radius:50%;right:-60px;top:-70px;background:radial-gradient(circle,rgba(37,99,235,.22),transparent 68%);}
+  .proj .thumb .ic{position:relative;width:56px;height:56px;border-radius:16px;background:rgba(255,255,255,.85);border:1px solid rgba(255,255,255,.9);box-shadow:var(--sh-md);color:var(--accent);display:grid;place-items:center;}
+  .proj .thumb .ic svg{width:26px;height:26px;}
+  .proj .thumb .tag{position:absolute;top:16px;left:16px;font-size:11px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--ink);background:rgba(255,255,255,.94);padding:6px 12px;border-radius:999px;border:1px solid var(--line);}
+  .proj .body{padding:26px;display:flex;flex-direction:column;flex:1;}
+  .proj h3{font-size:1.1rem;font-weight:700;margin-bottom:11px;}
+  .proj .body>p{font-size:.93rem;color:var(--muted);flex:1;margin-bottom:18px;}
+  .chips{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:22px;}
+  .chip{font-size:12px;font-weight:600;color:#475569;background:var(--surface);border:1px solid var(--line);padding:5px 11px;border-radius:999px;}
+  .proj .more{display:inline-flex;align-items:center;gap:7px;font-size:14px;font-weight:600;color:var(--ink);transition:color .2s var(--ease);}
+  .proj .more svg{width:15px;height:15px;transition:transform .28s var(--ease);}
+  .proj:hover .more{color:var(--accent);}
+  .proj:hover .more svg{transform:translateX(4px);}
+
+  /* ---------- CTA band ---------- */
+  .cta{position:relative;overflow:hidden;border-radius:24px;padding:60px 52px;color:#fff;display:flex;align-items:center;justify-content:space-between;gap:36px;flex-wrap:wrap;background:linear-gradient(120deg,#0B1220 0%,#141C33 55%,#1B2444 100%);box-shadow:var(--sh-lg);}
+  .cta::before{content:"";position:absolute;right:-90px;top:-110px;width:400px;height:400px;border-radius:50%;background:radial-gradient(circle,rgba(37,99,235,.55),transparent 66%);}
+  .cta::after{content:"";position:absolute;left:-60px;bottom:-140px;width:320px;height:320px;border-radius:50%;background:radial-gradient(circle,rgba(79,70,229,.4),transparent 66%);}
+  .cta>*{position:relative;z-index:1;}
+  .cta h2{font-size:clamp(1.55rem,2.9vw,2.1rem);font-weight:800;color:#fff;margin-bottom:12px;}
+  .cta p{color:#C7D2E1;font-size:1rem;max-width:520px;}
+  .cta .btn{background:#fff;color:var(--ink);box-shadow:0 12px 30px -10px rgba(0,0,0,.5);}
+  .cta .btn:hover{background:#F1F5F9;}
+
+  /* ---------- Contact ---------- */
+  .contact{display:grid;grid-template-columns:1.12fr .88fr;gap:44px;align-items:start;}
+  .form-card{background:#fff;border:1px solid var(--line);border-radius:22px;padding:38px;box-shadow:var(--sh-md);}
+  .row2{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+  .field{margin-bottom:20px;}
+  .field label{display:block;font-size:13.5px;font-weight:600;color:#334155;margin-bottom:8px;}
+  .field input,.field textarea{width:100%;padding:13px 15px;border:1px solid var(--line-strong);border-radius:12px;font-size:15px;color:var(--text);background:#FCFDFE;transition:border-color .2s var(--ease),box-shadow .2s var(--ease),background .2s var(--ease);}
+  .field input::placeholder,.field textarea::placeholder{color:#9AA7B8;}
+  .field input:focus,.field textarea:focus{outline:none;border-color:var(--accent);background:#fff;box-shadow:0 0 0 4px rgba(37,99,235,.12);}
+  .field textarea{resize:vertical;min-height:120px;}
+  .fnote{font-size:13px;color:var(--muted);margin-top:16px;}
+  .fstatus{display:none;margin-top:18px;padding:14px 18px;border-radius:12px;font-size:14px;font-weight:500;color:var(--accent-deep);background:rgba(37,99,235,.07);border:1px solid rgba(37,99,235,.18);}
+  .fstatus.show{display:block;}
+  .info{display:flex;flex-direction:column;gap:16px;}
+  .info-card{display:flex;gap:16px;align-items:flex-start;background:#fff;border:1px solid var(--line);border-radius:16px;padding:22px 24px;box-shadow:var(--sh-sm);transition:transform .3s var(--ease),box-shadow .3s var(--ease);}
+  .info-card:hover{transform:translateY(-3px);box-shadow:var(--sh-md);}
+  .info-card .ic{width:44px;height:44px;border-radius:12px;flex:none;display:grid;place-items:center;color:var(--accent);background:linear-gradient(135deg,rgba(37,99,235,.12),rgba(79,70,229,.12));}
+  .info-card .ic svg{width:21px;height:21px;}
+  .info-card h4{font-size:.95rem;font-weight:700;margin-bottom:4px;}
+  .info-card p{font-size:.92rem;color:var(--muted);}
+  .info-card a{color:var(--accent);font-weight:600;}
+  .info-card a:hover{text-decoration:underline;}
+
+  /* ---------- Footer ---------- */
+  .footer{background:linear-gradient(180deg,var(--surface),#F4F7FB);border-top:1px solid var(--line);padding:72px 0 34px;}
+  .fgrid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1.15fr;gap:40px;margin-bottom:50px;}
+  .footer .logo{margin-bottom:18px;}
+  .footer .about{color:var(--muted);font-size:.93rem;max-width:300px;margin-bottom:24px;}
+  .socials{display:flex;gap:10px;}
+  .socials a{width:38px;height:38px;border-radius:11px;border:1px solid var(--line-strong);background:#fff;display:grid;place-items:center;color:#475569;transition:all .26s var(--ease);}
+  .socials a:hover{background:linear-gradient(135deg,var(--accent),var(--indigo));border-color:transparent;color:#fff;transform:translateY(-3px);box-shadow:var(--sh-md);}
+  .socials a svg{width:17px;height:17px;}
+  .footer h5{font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ink);margin-bottom:18px;}
+  .footer ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:12px;}
+  .footer ul a{font-size:.92rem;color:var(--muted);transition:color .2s var(--ease);}
+  .footer ul a:hover{color:var(--accent);}
+  .fbot{border-top:1px solid var(--line);padding-top:26px;display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap;}
+  .fbot p,.fbot a{font-size:.86rem;color:var(--muted);}
+  .fbot .l{display:flex;gap:22px;}
+  .fbot a:hover{color:var(--accent);}
+
+  /* ---------- Back to top ---------- */
+  .top{position:fixed;right:24px;bottom:24px;z-index:90;width:46px;height:46px;border:0;border-radius:13px;cursor:pointer;display:grid;place-items:center;color:#fff;background:linear-gradient(135deg,var(--ink),#1E293B);box-shadow:var(--sh-lg);opacity:0;visibility:hidden;transform:translateY(12px);transition:opacity .3s var(--ease),transform .3s var(--ease),visibility .3s,background .25s var(--ease);}
+  .top.show{opacity:1;visibility:visible;transform:none;}
+  .top:hover{background:linear-gradient(135deg,var(--accent),var(--indigo));}
+  .top svg{width:20px;height:20px;}
+
+  /* ---------- Reveal ---------- */
+  .rv{opacity:0;transform:translateY(22px);transition:opacity .7s var(--ease),transform .7s var(--ease);}
+  .rv.in{opacity:1;transform:none;}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto;}.rv{opacity:1;transform:none;transition:none;}*{transition-duration:.001ms !important;animation-duration:.001ms !important;}}
+
+  /* ---------- Responsive ---------- */
+  @media (max-width:1024px){
+    .hero-grid{grid-template-columns:1fr;gap:52px;padding-top:0;}
+    .viz{max-width:560px;}
+    .grid4,.stats{grid-template-columns:repeat(2,1fr);}
+    .grid3{grid-template-columns:repeat(2,1fr);}
+    .contact{grid-template-columns:1fr;gap:34px;}
+    .fgrid{grid-template-columns:1fr 1fr;gap:34px;}
+  }
+  @media (max-width:680px){
+    .menu,.nav .btn{display:none;}
+    .burger{display:grid;}
+    .wrap{padding:0 20px;}
+    .sec{padding:72px 0;}
+    .hero{padding:64px 0 72px;}
+    .hero-strip{grid-template-columns:1fr;border-top:1px solid var(--line);}
+    .hero-strip div{border-right:0;border-bottom:1px solid var(--line);padding:18px 0;}
+    .hero-strip div:last-child{border-bottom:0;}
+    .grid4,.stats,.grid3{grid-template-columns:1fr;}
+    .row2{grid-template-columns:1fr;gap:0;}
+    .form-card{padding:24px;}
+    .cta{padding:40px 28px;flex-direction:column;align-items:flex-start;}
+    .fgrid{grid-template-columns:1fr;gap:30px;}
+    .fbot{flex-direction:column;}
+    .viz-badge{left:auto;right:12px;bottom:-16px;}
+    .float{right:0;}
+  }
+</style>
+</head>
+<body>
+
+<!-- ================= HEADER ================= -->
+<header class="header" id="header">
+  <div class="wrap">
+    <nav class="nav" aria-label="Primary">
+      <a href="#home" class="logo" aria-label="IMES home">
+        <span class="mark" aria-hidden="true"><span>IM</span></span> IMES
+      </a>
+      <ul class="menu">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About IMES</a></li>
+        <li><a href="#subsidiaries">Subsidiaries</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="#contact" class="btn btn-primary btn-sm">Get in Touch</a></li>
+      </ul>
+      <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="drawer"><i></i><i></i><i></i></button>
+    </nav>
+  </div>
+</header>
+<div class="drawer" id="drawer">
+  <a href="#home">Home</a>
+  <a href="#about">About IMES</a>
+  <a href="#subsidiaries">Subsidiaries</a>
+  <a href="#projects">Projects</a>
+  <a href="#contact">Contact</a>
+  <a href="#contact" class="btn btn-primary">Get in Touch</a>
+</div>
+
+<main>
+<!-- ================= HERO ================= -->
+<section class="hero" id="home">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div>
+        <span class="pill"><span class="dot"></span> Multinational Enterprise Group</span>
+        <h1>Building the future through <span class="grad">innovation and enterprise excellence</span></h1>
+        <p class="sub">IMES is a multinational company creating value through technology, business innovation, creative services, and strategic growth across diverse industries.</p>
+        <div class="hero-cta">
+          <a href="#about" class="btn btn-primary">Explore IMES
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+          <a href="#subsidiaries" class="btn btn-ghost">Our Companies</a>
+        </div>
+        <div class="hero-strip">
+          <div><strong>50+</strong><span>Projects delivered</span></div>
+          <div><strong>20+</strong><span>Countries served</span></div>
+          <div><strong>100+</strong><span>Global clients</span></div>
+        </div>
+      </div>
+
+      <div class="viz" aria-hidden="true">
+        <div class="viz-card">
+          <div class="viz-bar"><i></i><i></i><i class="b"></i><span class="t">IMES Group Console</span></div>
+          <div class="viz-tiles">
+            <div class="viz-tile">
+              <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></span>
+              <span class="ln a"></span><span class="ln b"></span>
+            </div>
+            <div class="viz-tile">
+              <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 15l4-4 3 3 5-6"/></svg></span>
+              <span class="ln a"></span><span class="ln b"></span>
+            </div>
+            <div class="viz-tile">
+              <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M2 12h20M12 3a15 15 0 0 1 0 18 15 15 0 0 1 0-18z"/></svg></span>
+              <span class="ln a"></span><span class="ln b"></span>
+            </div>
+          </div>
+          <div class="viz-chart">
+            <div class="viz-row"><span class="k">Tech</span><span class="viz-track"><span class="viz-fill" data-w="88%"></span></span></div>
+            <div class="viz-row"><span class="k">Media</span><span class="viz-track"><span class="viz-fill" data-w="71%"></span></span></div>
+            <div class="viz-row"><span class="k">Global</span><span class="viz-track"><span class="viz-fill" data-w="63%"></span></span></div>
+          </div>
+        </div>
+        <div class="viz-badge">
+          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l2.4 6.9L21 11l-6.6 2.1L12 20l-2.4-6.9L3 11l6.6-2.1z"/></svg></span>
+          <span><strong>Enterprise Grade</strong><span>Trusted across 20+ markets</span></span>
+        </div>
+        <div class="float">
+          <span class="up"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg></span>
+          Portfolio growing
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= ABOUT ================= -->
+<section class="sec" id="about">
+  <div class="wrap">
+    <div class="head rv">
+      <span class="kicker">About IMES</span>
+      <h2>A parent company built to grow diverse businesses with <span class="grad">discipline</span></h2>
+      <p>IMES is a multinational holding company operating a portfolio of subsidiaries across technology, business services, media, creative industries, and future-facing ventures. We combine long-term capital, operational expertise, and a shared standard of excellence to help every company under our brand scale responsibly.</p>
+    </div>
+
+    <div class="grid4">
+      <div class="card rv">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 22h4M12 2a7 7 0 0 0-4 12.7c.6.5 1 1.3 1 2.1V18h6v-1.2c0-.8.4-1.6 1-2.1A7 7 0 0 0 12 2z"/></svg></span>
+        <h3>Innovation</h3>
+        <p>We invest in ideas and teams that redefine how industries operate, turning research into products people rely on.</p>
+      </div>
+      <div class="card rv">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><path d="M9 2v2M15 2v2M9 20v2M15 20v2M2 9h2M2 15h2M20 9h2M20 15h2"/></svg></span>
+        <h3>Technology</h3>
+        <p>Our flagship technology company, Quintalyra, anchors the group's engineering, cloud, and digital platform capabilities.</p>
+      </div>
+      <div class="card rv">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M3 20h18M6 20V10M11 20V4M16 20v-7M21 20v-11"/></svg></span>
+        <h3>Growth</h3>
+        <p>We build durable, compounding businesses through focused execution, strong governance, and disciplined capital allocation.</p>
+      </div>
+      <div class="card rv">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M2 12h20M12 3a15 15 0 0 1 0 18 15 15 0 0 1 0-18z"/></svg></span>
+        <h3>Global Vision</h3>
+        <p>A multinational footprint spanning 20+ countries lets our companies serve clients across borders and time zones.</p>
+      </div>
+    </div>
+
+    <div class="stats">
+      <div class="stat rv"><div class="num" data-count="50" data-suffix="+">0</div><div class="lbl">Projects</div></div>
+      <div class="stat rv"><div class="num" data-count="20" data-suffix="+">0</div><div class="lbl">Countries</div></div>
+      <div class="stat rv"><div class="num" data-count="100" data-suffix="+">0</div><div class="lbl">Clients</div></div>
+      <div class="stat rv"><div class="num" data-count="5" data-suffix="">0</div><div class="lbl">Subsidiaries &amp; Growing</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= SUBSIDIARIES ================= -->
+<section class="sec tint" id="subsidiaries">
+  <div class="wrap">
+    <div class="head center rv">
+      <span class="kicker">Our Portfolio</span>
+      <h2>Companies under <span class="grad">IMES</span></h2>
+      <p>A growing family of specialist companies, each operating with focus while sharing the standards, capital, and reach of the IMES group.</p>
+    </div>
+
+    <div class="grid3">
+      <article class="sub rv">
+        <span class="flag">Flagship</span>
+        <span class="logo g" aria-hidden="true">Q</span>
+        <h3>Quintalyra</h3>
+        <span class="cat">Technology</span>
+        <p>Our flagship technology company, delivering enterprise software, cloud platforms, and digital transformation solutions for organisations worldwide.</p>
+        <a href="#projects" class="more">Learn More
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+      </article>
+
+      <article class="sub rv">
+        <span class="logo" aria-hidden="true">IN</span>
+        <h3>INSdia Global</h3>
+        <span class="cat">Business Services</span>
+        <p>A global business and consulting division supporting clients with strategy, operations, market entry, and cross-border growth services.</p>
+        <a href="#projects" class="more">Learn More
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+      </article>
+
+      <article class="sub rv">
+        <span class="logo" aria-hidden="true">CS</span>
+        <h3>Creator Studio</h3>
+        <span class="cat">Media &amp; Creative</span>
+        <p>A creative services studio producing brand content, video, design, and storytelling for companies and creators across platforms.</p>
+        <a href="#projects" class="more">Learn More
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+      </article>
+
+      <article class="sub rv">
+        <span class="logo" aria-hidden="true">PW</span>
+        <h3>Photo World</h3>
+        <span class="cat">Imaging &amp; Retail</span>
+        <p>An imaging and photography business offering professional services, studio production, and retail solutions for consumers and enterprises.</p>
+        <a href="#projects" class="more">Learn More
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+      </article>
+
+      <article class="sub rv">
+        <span class="logo" aria-hidden="true">ME</span>
+        <h3>Mondal Enterprise</h3>
+        <span class="cat">Trade &amp; Ventures</span>
+        <p>A diversified enterprise arm focused on trade, distribution, and early-stage ventures that extend the group's industrial footprint.</p>
+        <a href="#projects" class="more">Learn More
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+      </article>
+
+      <article class="sub rv">
+        <span class="logo" aria-hidden="true">+</span>
+        <h3>Future Subsidiaries</h3>
+        <span class="cat">Innovation Pipeline</span>
+        <p>IMES continues to incubate and acquire new companies across future industries, expanding the group's portfolio and global reach.</p>
+        <a href="#contact" class="more">Partner With Us
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PROJECTS ================= -->
+<section class="sec" id="projects">
+  <div class="wrap">
+    <div class="head rv">
+      <span class="kicker">Work</span>
+      <h2>Projects &amp; <span class="grad">innovations</span></h2>
+      <p>Selected initiatives from across the IMES group — from enterprise platforms and digital infrastructure to creative and imaging ventures.</p>
+    </div>
+
+    <div class="grid3">
+      <article class="proj rv">
+        <div class="thumb"><span class="tag">Technology</span><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></span></div>
+        <div class="body">
+          <h3>Quintalyra Cloud Platform</h3>
+          <p>A multi-tenant enterprise cloud platform unifying deployment, monitoring, and security for distributed teams.</p>
+          <div class="chips"><span class="chip">Kubernetes</span><span class="chip">Go</span><span class="chip">React</span></div>
+          <a href="#contact" class="more">View Project
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+        </div>
+      </article>
+
+      <article class="proj rv">
+        <div class="thumb"><span class="tag">AI &amp; Data</span><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v4M12 18v4M4.9 4.9l2.8 2.8M16.3 16.3l2.8 2.8M2 12h4M18 12h4M4.9 19.1l2.8-2.8M16.3 7.7l2.8-2.8"/><circle cx="12" cy="12" r="3"/></svg></span></div>
+        <div class="body">
+          <h3>Enterprise Analytics Suite</h3>
+          <p>An AI-assisted analytics suite turning operational data into decision-ready insight for large organisations.</p>
+          <div class="chips"><span class="chip">Python</span><span class="chip">PyTorch</span><span class="chip">BigQuery</span></div>
+          <a href="#contact" class="more">View Project
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+        </div>
+      </article>
+
+      <article class="proj rv">
+        <div class="thumb"><span class="tag">Consulting</span><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 15l4-4 3 3 5-6"/></svg></span></div>
+        <div class="body">
+          <h3>Global Market Entry Program</h3>
+          <p>INSdia Global's consulting framework helping businesses enter new international markets with confidence.</p>
+          <div class="chips"><span class="chip">Strategy</span><span class="chip">Research</span><span class="chip">Advisory</span></div>
+          <a href="#contact" class="more">View Project
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+        </div>
+      </article>
+
+      <article class="proj rv">
+        <div class="thumb"><span class="tag">Media</span><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M10 9l5 3-5 3z"/></svg></span></div>
+        <div class="body">
+          <h3>Brand Film &amp; Content Engine</h3>
+          <p>Creator Studio's production pipeline delivering brand films, campaigns, and editorial content at scale.</p>
+          <div class="chips"><span class="chip">Video</span><span class="chip">Design</span><span class="chip">Editorial</span></div>
+          <a href="#contact" class="more">View Project
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+        </div>
+      </article>
+
+      <article class="proj rv">
+        <div class="thumb"><span class="tag">Imaging</span><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8a2 2 0 0 1 2-2h2l1.5-2h7L17 6h2a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><circle cx="12" cy="13" r="3.5"/></svg></span></div>
+        <div class="body">
+          <h3>Photo World Studio Network</h3>
+          <p>A connected network of imaging studios and retail touchpoints serving consumers and enterprise clients.</p>
+          <div class="chips"><span class="chip">Imaging</span><span class="chip">Retail</span><span class="chip">Operations</span></div>
+          <a href="#contact" class="more">View Project
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+        </div>
+      </article>
+
+      <article class="proj rv">
+        <div class="thumb"><span class="tag">Innovation</span><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l2.4 6.9L21 11l-6.6 2.1L12 20l-2.4-6.9L3 11l6.6-2.1z"/></svg></span></div>
+        <div class="body">
+          <h3>Future Industries Lab</h3>
+          <p>An IMES innovation lab exploring emerging technologies and new venture opportunities for the group.</p>
+          <div class="chips"><span class="chip">R&amp;D</span><span class="chip">Ventures</span><span class="chip">Prototyping</span></div>
+          <a href="#contact" class="more">View Project
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CTA ================= -->
+<section class="sec" style="padding-top:0;">
+  <div class="wrap">
+    <div class="cta rv">
+      <div>
+        <h2>Partner with a multinational group built for the long term</h2>
+        <p>Whether you are a client, partner, or future subsidiary, IMES offers the reach, resources, and standards to grow with confidence.</p>
+      </div>
+      <a href="#contact" class="btn">Start a Conversation
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CONTACT ================= -->
+<section class="sec tint" id="contact">
+  <div class="wrap">
+    <div class="head rv">
+      <span class="kicker">Contact</span>
+      <h2>Let's build something <span class="grad">together</span></h2>
+      <p>Reach out to the IMES corporate office or our technology division, Quintalyra. We respond to serious enquiries within two business days.</p>
+    </div>
+
+    <div class="contact">
+      <div class="form-card rv">
+        <form id="form" novalidate>
+          <div class="row2">
+            <div class="field"><label for="name">Name</label><input id="name" name="name" type="text" placeholder="Your full name" required /></div>
+            <div class="field"><label for="email">Email</label><input id="email" name="email" type="email" placeholder="you@company.com" required /></div>
+          </div>
+          <div class="row2">
+            <div class="field"><label for="phone">Phone</label><input id="phone" name="phone" type="tel" placeholder="+91 XXXXX XXXXX" /></div>
+            <div class="field"><label for="company">Company</label><input id="company" name="company" type="text" placeholder="Organisation name" /></div>
+          </div>
+          <div class="field"><label for="message">Message</label><textarea id="message" name="message" placeholder="Tell us about your enquiry…" required></textarea></div>
+          <button type="submit" class="btn btn-primary" style="width:100%;">Send Message
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </button>
+          <p class="fnote">By submitting, you agree to be contacted by IMES regarding your enquiry.</p>
+          <div class="fstatus" id="fstatus" role="status" aria-live="polite"></div>
+        </form>
+      </div>
+
+      <div class="info">
+        <div class="info-card rv">
+          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V7l7-4 7 4v14M9 21v-6h6v6"/></svg></span>
+          <div><h4>Company</h4><p>IMES — Multinational Enterprise Group</p></div>
+        </div>
+        <div class="info-card rv">
+          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><path d="M9 2v2M15 2v2M9 20v2M15 20v2M2 9h2M2 15h2M20 9h2M20 15h2"/></svg></span>
+          <div><h4>Technology Division</h4><p>Quintalyra</p></div>
+        </div>
+        <div class="info-card rv">
+          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 6 10-6"/></svg></span>
+          <div><h4>Email</h4><p><a href="mailto:info@imesglobal.com">info@imesglobal.com</a></p></div>
+        </div>
+        <div class="info-card rv">
+          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg></span>
+          <div><h4>Phone</h4><p>+91 XXXXX XXXXX</p></div>
+        </div>
+        <div class="info-card rv">
+          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg></span>
+          <div><h4>Address</h4><p>IMES Corporate Office</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- ================= FOOTER ================= -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="fgrid">
+      <div>
+        <a href="#home" class="logo" aria-label="IMES home"><span class="mark" aria-hidden="true"><span>IM</span></span> IMES</a>
+        <p class="about">IMES is a multinational parent company building value across technology, business services, media, creative industries, and future ventures.</p>
+        <div class="socials">
+          <a href="#home" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-1 1.83-2.05 3.76-2.05C20.4 8.65 21 11 21 14.1V21h-4v-6.1c0-1.45-.03-3.3-2-3.3s-2.3 1.57-2.3 3.2V21H9z"/></svg></a>
+          <a href="#home" aria-label="X"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.9 2H22l-7.1 8.1L23.2 22h-6.5l-5.1-6.7L5.8 22H2.7l7.6-8.7L1.2 2h6.6l4.6 6.1zm-1.1 18h1.7L7.3 3.8H5.5z"/></svg></a>
+          <a href="#home" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
+          <a href="#home" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23 12s0-3.4-.44-5a2.9 2.9 0 0 0-2-2C18.8 4.5 12 4.5 12 4.5s-6.8 0-8.56.5a2.9 2.9 0 0 0-2 2C1 8.6 1 12 1 12s0 3.4.44 5a2.9 2.9 0 0 0 2 2c1.76.5 8.56.5 8.56.5s6.8 0 8.56-.5a2.9 2.9 0 0 0 2-2c.44-1.6.44-5 .44-5zM10 15.5v-7l6 3.5z"/></svg></a>
+        </div>
+      </div>
+      <div>
+        <h5>Company</h5>
+        <ul>
+          <li><a href="#about">About IMES</a></li>
+          <li><a href="#subsidiaries">Subsidiaries</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Our Companies</h5>
+        <ul>
+          <li><a href="#subsidiaries">Quintalyra</a></li>
+          <li><a href="#subsidiaries">INSdia Global</a></li>
+          <li><a href="#subsidiaries">Creator Studio</a></li>
+          <li><a href="#subsidiaries">Photo World</a></li>
+          <li><a href="#subsidiaries">Mondal Enterprise</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Get in Touch</h5>
+        <ul>
+          <li><a href="mailto:info@imesglobal.com">info@imesglobal.com</a></li>
+          <li><a href="tel:+910000000000">+91 XXXXX XXXXX</a></li>
+          <li><a href="#contact">IMES Corporate Office</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="fbot">
+      <p>© 2026 IMES. All Rights Reserved.</p>
+      <div class="l"><a href="#home">Privacy Policy</a><a href="#home">Terms of Use</a><a href="#home">Cookies</a></div>
+    </div>
+  </div>
+</footer>
+
+<button class="top" id="top" aria-label="Back to top">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+</button>
+
+<script>
+(function(){
+  "use strict";
+  var header=document.getElementById('header'), top=document.getElementById('top');
+  function onScroll(){var y=window.scrollY||window.pageYOffset;header.classList.toggle('scrolled',y>8);top.classList.toggle('show',y>520);}
+  window.addEventListener('scroll',onScroll,{passive:true});onScroll();
+  top.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'});});
+
+  var burger=document.getElementById('burger'), drawer=document.getElementById('drawer');
+  function close(){burger.classList.remove('on');drawer.classList.remove('open');burger.setAttribute('aria-expanded','false');}
+  burger.addEventListener('click',function(){var o=burger.classList.toggle('on');drawer.classList.toggle('open',o);burger.setAttribute('aria-expanded',o?'true':'false');});
+  drawer.querySelectorAll('a').forEach(function(a){a.addEventListener('click',close);});
+  window.addEventListener('resize',function(){if(window.innerWidth>680)close();});
+
+  var rv=document.querySelectorAll('.rv');
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:0.12,rootMargin:'0px 0px -40px 0px'});
+    rv.forEach(function(el){io.observe(el);});
+  } else { rv.forEach(function(el){el.classList.add('in');}); }
+
+  function count(el){
+    var t=parseInt(el.getAttribute('data-count'),10)||0, s=el.getAttribute('data-suffix')||'', st=null, d=1500;
+    function step(ts){if(!st)st=ts;var p=Math.min((ts-st)/d,1);var e=1-Math.pow(1-p,3);el.textContent=Math.round(e*t)+(s?s:'');if(p<1)requestAnimationFrame(step);}
+    requestAnimationFrame(step);
+  }
+  var nums=document.querySelectorAll('.num[data-count]');
+  if('IntersectionObserver' in window){
+    var co=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){count(e.target);co.unobserve(e.target);}});},{threshold:0.5});
+    nums.forEach(function(el){co.observe(el);});
+  } else { nums.forEach(count); }
+
+  setTimeout(function(){document.querySelectorAll('.viz-fill').forEach(function(b){b.style.width=b.getAttribute('data-w');});},450);
+
+  var form=document.getElementById('form'), st=document.getElementById('fstatus');
+  form.addEventListener('submit',function(ev){
+    ev.preventDefault();
+    var n=form.name.value.trim(), em=form.email.value.trim(), m=form.message.value.trim();
+    if(!n||!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(em)||!m){st.textContent='Please enter your name, a valid email address, and a message.';st.classList.add('show');return;}
+    st.textContent='Thank you, '+n+'. Your message has been received — the IMES team will get back to you shortly.';
+    st.classList.add('show');form.reset();
+  });
+})();
+</script>
+</body>
+</html>
